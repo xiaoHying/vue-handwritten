@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue-handwritten</title>
+  </head>
+  <body>
+    <h1>vue-handwritten</h1>
+    <div id="app">
+      <h3>{{str}}</h3>
+      <p>{{str}}</p>
+      {{ b }}
+      <hr />
+      <input type="text" v-model="str" />
+      <button @click="submit">按钮</button>
+    </div>
+  </body>
+  <script type="text/javascript" src="./src/vue.js"></script>
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data: {
+        str: '您好',
+        b: '这是data数据',
+      },
+      beforeCreate() {
+        console.log(this.$el, this.$data, 'beforeCreate');
+      },
+      created() {
+        console.log(this.$el, this.$data, 'created');
+      },
+      beforeMount() {
+        console.log(this.$el, this.$data, 'beforeMount');
+      },
+      mounted() {
+        console.log(this.$el, this.$data, 'mounted');
+      },
+      methods: {
+        submit(event) {
+          // alert('1111');
+          this.str = 'hello';
+          console.log(this.str);
+        },
+      },
+    });
+  </script>
+</html>
